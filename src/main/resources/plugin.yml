@@ -1,0 +1,4 @@
+name: FarmBattle
+version: '${project.version}'
+main: net.kunmc.lab.farmbattle.FarmBattle
+authors: [ Kei ]
