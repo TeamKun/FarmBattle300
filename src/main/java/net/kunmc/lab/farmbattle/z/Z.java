@@ -3,6 +3,7 @@ package net.kunmc.lab.farmbattle.z;
 import lombok.Getter;
 import lombok.Setter;
 import net.kunmc.lab.farmbattle.FarmBattle;
+import net.kunmc.lab.farmbattle.z.module.GameLobby;
 import org.bukkit.boss.BossBar;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.scheduler.BukkitTask;
@@ -62,6 +63,16 @@ public class Z {
     public void register() {
         modules = new HashMap<>();
         // register game modules
+        modules.put(1, new GameLobby(this));
+
+    }
+
+    public void reset() {
+        status = 0;
+        time = 0;
+        if (modules.containsKey(0)) {
+            modules.get(0).call();
+        }
     }
 
     public void run() {
