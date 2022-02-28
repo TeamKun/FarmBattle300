@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class Z {
 
-    @Getter
+    @Getter @Setter
     private int status;
     @Getter @Setter
     private int time;
