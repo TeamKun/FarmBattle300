@@ -10,6 +10,7 @@ public class GameEnd extends ZModule {
 
     @Override
     public void call() {
-        // todo: end game
+        // todo: end game test
+        System.out.println("GameEnd");
     }
 }
