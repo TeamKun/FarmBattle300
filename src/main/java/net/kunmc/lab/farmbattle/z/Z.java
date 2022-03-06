@@ -3,7 +3,10 @@ package net.kunmc.lab.farmbattle.z;
 import lombok.Getter;
 import lombok.Setter;
 import net.kunmc.lab.farmbattle.FarmBattle;
+import net.kunmc.lab.farmbattle.z.module.GameEnd;
 import net.kunmc.lab.farmbattle.z.module.GameLobby;
+import net.kunmc.lab.farmbattle.z.module.GamePlaying;
+import net.kunmc.lab.farmbattle.z.module.GameResult;
 import org.bukkit.boss.BossBar;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.scheduler.BukkitTask;
@@ -14,6 +17,11 @@ import java.util.List;
 import java.util.Map;
 
 public class Z {
+
+    public static int STATUS_LOBBY = 0;
+    public static int STATUS_PLAYING = 1;
+    public static int STATUS_RESULT = 2;
+    public static int STATUS_END = 3;
 
     @Getter @Setter
     private int status;
@@ -63,7 +71,10 @@ public class Z {
     public void register() {
         modules = new HashMap<>();
         // register game modules
-        modules.put(1, new GameLobby(this));
+        modules.put(STATUS_LOBBY, new GameLobby(this));
+        modules.put(STATUS_PLAYING, new GamePlaying(this));
+        modules.put(STATUS_RESULT, new GameResult(this));
+        modules.put(STATUS_END, new GameEnd(this));
 
     }
 
