@@ -79,20 +79,17 @@ public class Z {
     }
 
     public void reset() {
-        status = 0;
+        status = STATUS_LOBBY;
         time = 0;
-        if (modules.containsKey(0)) {
-            modules.get(0).call();
-        }
     }
 
     public void run() {
         if (modules.containsKey(status)) {
             modules.get(status).call();
         } else {
-            status = 0;
-            if (modules.containsKey(0)) {
-                modules.get(0).call();
+            status = STATUS_LOBBY;
+            if (modules.containsKey(STATUS_LOBBY)) {
+                modules.get(STATUS_LOBBY).call();
             }
         }
     }
